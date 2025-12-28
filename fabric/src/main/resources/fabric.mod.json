@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "${modId}",
+  "version": "${modVersion}",
+  "name": "${modName}",
+  "description": "${modDescription}",
+  "authors": ["${modAuthor}"],
+  "license": "${modLicense}",
+  "icon": "assets/bluemap-better-markers/icon.jpg",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      {
+        "adapter": "kotlin",
+        "value": "com.machinepeople.bluemapbettermarkers.BlueMapBetterMarkersMod"
+      }
+    ]
+  },
+  "mixins": [],
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "fabric-api": "*",
+    "fabric-language-kotlin": ">=${fabricKotlinVersion}",
+    "minecraft": ">=${minecraftVersion}"
+  },
+  "suggests": {
+    "bluemap": "*"
+  }
+}
+

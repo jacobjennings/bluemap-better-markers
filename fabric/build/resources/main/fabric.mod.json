@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "bluemap-better-markers",
+  "version": "1.0.0",
+  "name": "BlueMap Better Markers",
+  "description": "Improves BlueMap marker rendering by showing coordinates when selected",
+  "authors": ["Jacob Jennings"],
+  "license": "MIT",
+  "icon": "assets/bluemap-better-markers/icon.jpg",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      {
+        "adapter": "kotlin",
+        "value": "com.machinepeople.bluemapbettermarkers.BlueMapBetterMarkersMod"
+      }
+    ]
+  },
+  "mixins": [],
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "fabric-api": "*",
+    "fabric-language-kotlin": ">=1.13.0+kotlin.2.1.0",
+    "minecraft": ">=1.21.11"
+  },
+  "suggests": {
+    "bluemap": "*"
+  }
+}
+

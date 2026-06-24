@@ -1,7 +1,7 @@
 plugins {
     kotlin("jvm")
     kotlin("plugin.serialization")
-    id("fabric-loom")
+    id("net.fabricmc.fabric-loom")
 }
 
 val minecraftVersion: String by project
@@ -11,18 +11,19 @@ val fabricKotlinVersion: String by project
 val blueMapApiVersion: String by project
 
 dependencies {
-    // Core module
-    implementation(project(":core", configuration = "namedElements"))
+    // Core module. The unobfuscated Loom no longer remaps subprojects, so the
+    // old `namedElements` configuration is gone — use a plain project dependency.
+    implementation(project(":core"))
     include(project(":core"))
     
-    // Minecraft & Fabric
+    // Minecraft & Fabric (26.1+ is unobfuscated — no mappings, and the new
+    // Loom does not remap mods, so use `implementation` not `modImplementation`)
     minecraft("com.mojang:minecraft:$minecraftVersion")
-    mappings(loom.officialMojangMappings())
-    modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
-    modImplementation("net.fabricmc.fabric-api:fabric-api:$fabricApiVersion")
+    implementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
+    implementation("net.fabricmc.fabric-api:fabric-api:$fabricApiVersion")
 
     // Kotlin language adapter
-    modImplementation("net.fabricmc:fabric-language-kotlin:$fabricKotlinVersion")
+    implementation("net.fabricmc:fabric-language-kotlin:$fabricKotlinVersion")
 
     // BlueMap API
     implementation("de.bluecolored:bluemap-api:$blueMapApiVersion")
@@ -59,11 +60,8 @@ tasks.processResources {
     }
 }
 
-tasks.remapJar {
-    val modId: String by project
-    archiveBaseName.set(modId)
-}
-
+// Note: the unobfuscated Loom (26.1+) does not remap, so there is no
+// `remapJar` task — `jar` produces the final, loadable mod artifact.
 tasks.jar {
     val modId: String by project
     archiveBaseName.set(modId)

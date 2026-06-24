@@ -18,10 +18,11 @@
   },
   "mixins": [],
   "depends": {
-    "fabricloader": ">=0.16.0",
+    "fabricloader": ">=0.19.3",
+    "java": ">=25",
     "fabric-api": "*",
     "fabric-language-kotlin": ">=${fabricKotlinVersion}",
-    "minecraft": ">=${minecraftVersion}"
+    "minecraft": "~${minecraftVersion}"
   },
   "suggests": {
     "bluemap": "*"

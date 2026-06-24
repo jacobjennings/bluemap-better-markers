@@ -1,7 +1,8 @@
 plugins {
-    kotlin("jvm") version "2.1.0" apply false
-    kotlin("plugin.serialization") version "2.1.0" apply false
-    id("fabric-loom") version "1.14.10" apply false
+    kotlin("jvm") version "2.3.21" apply false
+    kotlin("plugin.serialization") version "2.3.21" apply false
+    // New unobfuscated Loom plugin (Minecraft 26.1+). Does NOT remap MC or mods.
+    id("net.fabricmc.fabric-loom") version "1.17.12" apply false
 }
 
 allprojects {
@@ -22,19 +23,18 @@ subprojects {
     dependencies {
         val implementation by configurations
         implementation(kotlin("stdlib"))
-        implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0")
     }
 
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
         compilerOptions {
-            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_25)
         }
     }
 
     tasks.withType<JavaCompile> {
-        sourceCompatibility = "21"
-        targetCompatibility = "21"
+        options.release.set(25)
+        sourceCompatibility = "25"
+        targetCompatibility = "25"
     }
 }
 

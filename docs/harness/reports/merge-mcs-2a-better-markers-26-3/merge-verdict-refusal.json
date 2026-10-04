@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "parent_run_id": "review-mcs-2a-better-markers-26-3-114fc56b1ad5",
+  "commit": "f487f3e26a55d49cf8069751f4bb159d7e12d4b1",
+  "report_path": "docs/reports/review-mcs-2a-better-markers-26-3/report.md",
+  "verdict": "<missing or ambiguous verdict>",
+  "detail": "report docs/reports/review-mcs-2a-better-markers-26-3/report.md, verdict '<missing or ambiguous verdict>': no plain accept in the committed review"
+}

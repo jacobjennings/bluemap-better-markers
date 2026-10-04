@@ -1,8 +1,8 @@
 plugins {
-    kotlin("jvm") version "2.3.21" apply false
-    kotlin("plugin.serialization") version "2.3.21" apply false
+    kotlin("jvm") version "2.4.20" apply false
+    kotlin("plugin.serialization") version "2.4.20" apply false
     // New unobfuscated Loom plugin (Minecraft 26.1+). Does NOT remap MC or mods.
-    id("net.fabricmc.fabric-loom") version "1.17.12" apply false
+    id("net.fabricmc.fabric-loom") version "1.17.21" apply false
 }
 
 allprojects {

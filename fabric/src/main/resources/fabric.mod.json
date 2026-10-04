@@ -22,7 +22,7 @@
     "java": ">=25",
     "fabric-api": "*",
     "fabric-language-kotlin": ">=${fabricKotlinVersion}",
-    "minecraft": "~${minecraftVersion}"
+    "minecraft": ">=26.1.2"
   },
   "suggests": {
     "bluemap": "*"
